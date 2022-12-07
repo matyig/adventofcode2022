@@ -42,32 +42,27 @@ class Day2 : Day {
         )
     }
 
-    fun List<String>.toCharPairList(): List<Pair<Char, Char>> {
-        return this.map { it.split(" ") }
+    fun List<String>.toCharPairList(): List<Pair<Char, Char>> =
+        this.map { it.split(" ") }
             .filter { it.size == 2 && it[0].length == 1 && it[1].length == 1 }
             .map { Pair(it[0].first(), it[1].first())}
-    }
 
-    fun List<Pair<Char, Char>>.toScores(): List<Int> {
-        return this.map { scores.getOrDefault(it, 0) }
-    }
+    fun List<Pair<Char, Char>>.toScores(): List<Int> =
+        this.map { scores.getOrDefault(it, 0) }
 
-    fun Pair<Char, Char>.transform() : Pair<Char, Char>? {
-        return transformRules.get(this)
-    }
+    fun Pair<Char, Char>.transform() : Pair<Char, Char>? =
+        transformRules.get(this)
 
-    override fun part1(input: List<String>): Long {
-        return input.toCharPairList()
+    override fun part1(input: List<String>): Long =
+        input.toCharPairList()
             .toScores()
             .sum()
             .toLong()
-    }
 
-    override fun part2(input: List<String>): Long {
-        return input.toCharPairList()
+    override fun part2(input: List<String>): Long =
+        input.toCharPairList()
             .mapNotNull { it.transform() }
             .toScores()
             .sum()
             .toLong()
-    }
 }
