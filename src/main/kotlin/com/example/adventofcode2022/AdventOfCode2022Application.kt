@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class Adventofcode2022Application
+class AdventOfCode2022Application
 
 fun main(args: Array<String>) {
-	runApplication<Adventofcode2022Application>(*args)
+	runApplication<AdventOfCode2022Application>(*args)
 }
